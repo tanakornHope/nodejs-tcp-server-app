@@ -1,5 +1,5 @@
 const net = require('net');
-const port = 35000;
+const port = 80;
 const host = '127.0.0.1';
 const server = net.createServer();
 
