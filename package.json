@@ -13,6 +13,7 @@
   "author": "Tanakorn",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "cjs-loader":"^0.1.0"
   }
 }
