@@ -4,7 +4,6 @@ const host = '127.0.0.1';
 const server = net.createServer();
 
 let sockets = [];
-let incommingCount = 0;
 
 /* server.listen(port, host, () => {
     console.log('TCP Server is running on port ' + port +'.');
@@ -15,6 +14,7 @@ server.listen(port, () => {
 });
 
 server.on('connection', (sock) => {
+    let incommingCount = 0;
     console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
     sockets.push(sock);
 
