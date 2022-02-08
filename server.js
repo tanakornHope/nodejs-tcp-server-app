@@ -5,10 +5,6 @@ const server = net.createServer();
 
 let sockets = [];
 
-/* server.listen(port, host, () => {
-    console.log('TCP Server is running on port ' + port +'.');
-}); */
-
 server.listen(port, () => {
     console.log(`TCP Server is running on port ${port}`);
 });
