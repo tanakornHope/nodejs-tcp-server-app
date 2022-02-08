@@ -1,17 +1,16 @@
-/* const io = require('socket.io')(server);
 const PORT = process.env.PORT || 3000;
 const INDEX = "/index.html";
+const express = require("express");
 
 const server = express()
-  .use((req, res) => res.end())
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-const io = socketIO(server);
+const { Server } = require("ws");
 
-io.on("connection", (socket) => {
-  console.log("Client connected");
-  socket.on("disconnect", () => console.log("Client disconnected"));
-});
- */
+const wss = new Server({ server });
 
-console.log("Hello World");
+wss.on('connection', (ws) => {
+    console.log('Client connected');
+    ws.on('close', () => console.log('Client disconnected'));
+  });
