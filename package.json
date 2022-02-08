@@ -12,10 +12,12 @@
   ],
   "author": "Tanakorn",
   "license": "ISC",
+  "devDependencies":{
+    "nodemon": "^2.0.15"
+  },
   "dependencies": {
     "cjs-loader": "^0.1.0",
     "express": "^4.17.2",
-    "nodemon": "^2.0.15",
     "socket.io": "^4.4.1"
   }
 }

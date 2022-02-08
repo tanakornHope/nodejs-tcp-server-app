@@ -1,42 +1,17 @@
-const net = require('net');
-const port = 3000;
-const server = net.createServer();
+/* const io = require('socket.io')(server);
+const PORT = process.env.PORT || 3000;
+const INDEX = "/index.html";
 
-let sockets = [];
+const server = express()
+  .use((req, res) => res.end())
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-server.listen(port, () => {
-    console.log(`TCP Server is running on port ${port}`);
+const io = socketIO(server);
+
+io.on("connection", (socket) => {
+  console.log("Client connected");
+  socket.on("disconnect", () => console.log("Client disconnected"));
 });
+ */
 
-server.on('connection', (sock) => {
-    let incommingCount = 0;
-    console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
-    sockets.push(sock);
-
-    sock.on('data', (data) => {
-        incommingCount++;
-        // console.log(`DATA ${sock.remoteAddress} : ${data} count: ${incommingCount}`);
-        console.log(`DATA ${sock.remoteAddress} : ${data}`);
-        // Write the data back to all the connected, the client will receive it as data from the server
-        sockets.forEach(function(sock, index, array) {
-            sock.write(`${sock.remoteAddress} : ${sock.remotePort} said Prayut huakuy. count: ${incommingCount} \n`);
-        });
-    });
-
-    sock.on('close', (data) => {
-        let index = sockets.findIndex(function(o) {
-            return o.remoteAddress === sock.remoteAddress && o.remotePort === sock.remotePort;
-        })
-        if (index !== -1) sockets.splice(index, 1);
-        console.log('CLOSED: ' + sock.remoteAddress + ' ' + sock.remotePort);
-    });
-
-    sock.on('end', () => {
-        console.log('Closing connection with the client');
-    });
-
-    // Don't forget to catch error, for your own sake.
-    sock.on('error', (err) => {
-        console.log(`Error: ${err}`);
-    });
-});
+console.log("Hello World");
