@@ -12,6 +12,7 @@ server.on('connection', (sock) => {
     let incommingCount = 0;
     console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
     sockets.push(sock);
+    console.log(sock);
 
     sock.on('data', (data) => {
         incommingCount++;
