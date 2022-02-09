@@ -20,7 +20,7 @@ server.on('connection', (sock) => {
         console.log(`DATA ${sock.remoteAddress} : ${data}`);
         // Write the data back to all the connected, the client will receive it as data from the server
         sockets.forEach(function(sock, index, array) {
-            sock.write(`${sock.remoteAddress} : ${sock.remotePort} said Prayut huakuy. count: ${incommingCount} \n`);
+            sock.write(`${sock.remoteAddress} : ${sock.remotePort} said Message from Server. count: ${incommingCount} \n`);
         });
     });
 
